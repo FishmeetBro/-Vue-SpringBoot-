@@ -264,7 +264,7 @@ mvn spring-boot:run
 
 ### API 访问
 
-项目启动后，访问 `http://localhost:9090` 进行接口调用。
+项目启动后，访问 `http://localhost:8080` 进行接口调用。
 
 ---
 
