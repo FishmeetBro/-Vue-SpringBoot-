@@ -1,32 +1,55 @@
-# -基于Vue+SpringBoot的通讯录管理系统-
-一个功能全面的工具，旨在简化个人和企业对联系人信息的管理。该系统提供主页、系统管理、公告管理和用户管理等核心功能，使用户能够轻松地进行信息添加、编辑、查询和删除操作，并通过用户友好的界面确保数据的高效和安全处理。
-# 技术栈
-Java 8+
-Spring Boot
-MySQL
+# 通讯录管理系统
 
-# 目录结构
-com.example.Application - 启动类
-com.example.controller.UserController - 用户管理的 RESTful API 控制器
-com.example.service.UserService - 业务逻辑处理层
-com.example.dao.UserRepository - 数据访问层，使用 Spring Data JPA 操作数据库
-com.example.entity.User - 用户实体类
-# 安装与运行
-# 克隆项目：
-git clone [https://github.com/FishmeetBro/A-Contact-Management-System-Based-on-Vue.js-and-Spring-Boot.git]
+基于 **Vue** + **Spring Boot** 的通讯录管理系统，这是一个功能全面的工具，旨在简化个人和企业对联系人信息的管理。该系统提供主页、系统管理、公告管理和用户管理等核心功能，使用户能够轻松地进行信息添加、编辑、查询和删除操作，并通过用户友好的界面确保数据的高效和安全处理。
 
-# 配置数据库: 在 application.yml 中设置 MySQL 数据库连接信息。
+## 技术栈
+
+- **Java** 8+
+- **Spring Boot**
+- **MySQL**
+
+## 目录结构
+
+```plaintext
+com.example.Application             # 启动类
+com.example.controller.UserController # 用户管理的 RESTful API 控制器
+com.example.service.UserService      # 业务逻辑处理层
+com.example.dao.UserRepository       # 数据访问层
+com.example.entity.User              # 用户实体类
+```
+
+## 安装与运行
+
+### 克隆项目
+
+```bash
+git clone https://github.com/FishmeetBro/A-Contact-Management-System-Based-on-Vue.js-and-Spring-Boot.git
+```
+
+### 配置数据库
+
+在 `application.yml` 中设置 MySQL 数据库连接信息：
+
+```yaml
 server:
   port: 9090
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sarmrt_address_book?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/smart_address_book?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: 123456
-运行项目: mvn spring-boot:run
+```
 
-API 访问： 项目启动后，访问 http://localhost:8080 进行接口调用。
+### 运行项目
+
+```bash
+mvn spring-boot:run
+```
+
+## API 访问
+
+项目启动后，访问 `http://localhost:9090` 进行接口调用。
 
 # 接口文档
 
@@ -251,9 +274,7 @@ API 访问： 项目启动后，访问 http://localhost:8080 进行接口调用�
   - `pageSize`（`Integer`）：每页数量
   - `username`（`String`）：用户名（模糊查询）
   - `email`（`String`）：用户邮箱（模糊查询）
-  - `address`（`String
-
-`）：用户地址（模糊查询）
+  - `address`（`String`）：用户地址（模糊查询）
 - **描述**: 分页查询用户列表，可按用户名、邮箱、地址模糊查询。
 
 联系方式
