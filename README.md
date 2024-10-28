@@ -1,4 +1,4 @@
-<img width="1244" alt="e4d4926af68d250866c7b559fc6afe0" src="https://github.com/user-attachments/assets/22e1cb07-720d-4335-acf4-cc0260905be2"># 通讯录管理系统
+# 通讯录管理系统
 
 基于 **Vue** + **Spring Boot** 的通讯录管理系统，这是一个功能全面的工具，旨在简化个人和企业对联系人信息的管理。该系统提供主页、系统管理、公告管理和用户管理等核心功能，使用户能够轻松地进行信息添加、编辑、查询和删除操作，并通过用户友好的界面确保数据的高效和安全处理。
 
@@ -8,6 +8,7 @@
 - **Spring Boot**
 - **MySQL**
 - **Vue**
+
 ---
 
 ## 功能特点
@@ -32,13 +33,18 @@
   - 支持按用户名、邮箱、地址等条件的分页查询和模糊查询，便于快速定位特定用户。
 
 ---
+
 ## 前端页面展示
+
 - **登入界面**
-<img width="1244" alt="e4d4926af68d250866c7b559fc6afe0" src="https://github.com/user-attachments/assets/2b0c1f2b-a278-403b-8abf-dcf83da7b380">
+  ![登入界面](https://github.com/user-attachments/assets/2b0c1f2b-a278-403b-8abf-dcf83da7b380)
+
 - **管理员界面**
-<img width="1244" alt="fd40ef5933c0492538ca2536ffd0df7" src="https://github.com/user-attachments/assets/a53caaae-ab11-4a7d-a28d-a65fd6c0402b">
-- **用户界面界面**
-<img width="1244" alt="20e8e6356c048b8e20f71f80bb78908" src="https://github.com/user-attachments/assets/dce7f4fc-de4f-4563-a7ec-8762041ed1e7">
+  ![管理员界面](https://github.com/user-attachments/assets/a53caaae-ab11-4a7d-a28d-a65fd6c0402b)
+
+- **用户界面**
+  ![用户界面](https://github.com/user-attachments/assets/dce7f4fc-de4f-4563-a7ec-8762041ed1e7)
+
 ---
 
 ## 快速开始
@@ -65,10 +71,6 @@ npm run serve
 
 打开浏览器并访问 [http://localhost:8080](http://localhost:8080)
 
---- 
-
-以下是“使用说明”部分的格式化内容，可以添加到 `README` 文件中：
-
 ---
 
 ## 使用说明
@@ -93,9 +95,6 @@ npm run serve
 - 管理系统用户，包括用户的新增、编辑和删除。
 - 支持重置密码功能，用户可以自行修改或重置密码。
 - 按用户名、邮箱或地址进行搜索和分页查询，便于管理大量用户。
-
---- 
-以下是根据您项目的 API 整理出的 `API 说明` 部分：
 
 ---
 
@@ -219,9 +218,10 @@ npm run serve
   - **请求体**: 用户信息（JSON 格式，包含用户名和手机号）
 
 ---
+
 ## 后端部分
----
-## 代码存放在 master 分支中，后端目录结构
+
+代码存放在 `master` 分支中，以下是后端的主要目录结构：
 
 ```plaintext
 com.example.Application             # 启动类
@@ -231,15 +231,17 @@ com.example.dao.UserRepository       # 数据访问层
 com.example.entity.User              # 用户实体类
 ```
 
-## 安装与运行
+### 安装与运行
 
-### 克隆项目
+#### 克隆项目
 
 ```bash
-git clone https://github.com/FishmeetBro/A-Contact-Management-System-Based-on-Vue.js-and-Spring-Boot.git
+git clone
+
+ https://github.com/FishmeetBro/A-Contact-Management-System-Based-on-Vue.js-and-Spring-Boot.git
 ```
 
-### 配置数据库
+#### 配置数据库
 
 在 `application.yml` 中设置 MySQL 数据库连接信息：
 
@@ -254,241 +256,18 @@ spring:
     password: 123456
 ```
 
-### 运行项目
+#### 运行项目
 
 ```bash
 mvn spring-boot:run
 ```
 
-## API 访问
+### API 访问
 
 项目启动后，访问 `http://localhost:9090` 进行接口调用。
 
-# 接口文档
-
-## 1. 文件管理接口 (`FileController`)
-
-### 文件上传
-- **URL**: `POST /file/upload`
-- **请求方法**: `POST`
-- **请求参数**: `file`（`MultipartFile`）
-- **描述**: 接收文件并保存到服务器。若文件已存在（MD5校验），返回已有文件的 URL，否则存储新文件。
-- **返回值**: 文件 URL
-
-### 文件下载
-- **URL**: `GET /file/{fileUUID}`
-- **请求方法**: `GET`
-- **路径参数**: `fileUUID`（`String`）：文件的唯一标识符
-- **描述**: 根据文件唯一标识符下载文件，返回文件流。
-
-### 更新文件信息
-- **URL**: `POST /file/update`
-- **请求方法**: `POST`
-- **请求体**: `Files` 对象
-- **描述**: 更新文件信息。
-
-### 删除文件
-- **URL**: `DELETE /file/{id}`
-- **请求方法**: `DELETE`
-- **路径参数**: `id`（`Integer`）：文件 ID
-- **描述**: 逻辑删除指定 ID 文件。
-
-### 批量删除文件
-- **URL**: `POST /file/del/batch`
-- **请求方法**: `POST`
-- **请求体**: `List<Integer>`（文件 ID 列表）
-- **描述**: 批量逻辑删除文件。
-
-### 分页查询文件
-- **URL**: `GET /file/page`
-- **请求方法**: `GET`
-- **请求参数**:
-  - `pageNum`（`Integer`）：页码
-  - `pageSize`（`Integer`）：每页数量
-  - `name`（`String`）：文件名（模糊查询）
-- **描述**: 分页查询文件列表，按名称模糊查询。
-
 ---
 
-## 2. 公告管理接口 (`NoticeController`)
+## 联系方式
 
-### 新增或更新公告
-- **URL**: `POST /notice`
-- **请求方法**: `POST`
-- **请求体**: `Notice` 对象
-- **描述**: 新增或更新公告。
-
-### 删除公告
-- **URL**: `DELETE /notice/{id}`
-- **请求方法**: `DELETE`
-- **路径参数**: `id`（`Integer`）：公告 ID
-- **描述**: 删除指定公告。
-
-### 批量删除公告
-- **URL**: `POST /notice/del/batch`
-- **请求方法**: `POST`
-- **请求体**: `List<Integer>`（公告 ID 列表）
-- **描述**: 批量删除公告。
-
-### 查询所有公告
-- **URL**: `GET /notice`
-- **请求方法**: `GET`
-- **描述**: 查询所有公告。
-
-### 查询单个公告
-- **URL**: `GET /notice/{id}`
-- **请求方法**: `GET`
-- **路径参数**: `id`（`Integer`）：公告 ID
-- **描述**: 根据 ID 查询公告。
-
-### 分页查询公告
-- **URL**: `GET /notice/page`
-- **请求方法**: `GET`
-- **请求参数**:
-  - `name`（`String`）：公告名称（模糊查询）
-  - `pageNum`（`Integer`）：页码
-  - `pageSize`（`Integer`）：每页数量
-- **描述**: 分页查询公告，按名称模糊查询。
-
-### 导出公告
-- **URL**: `GET /notice/export`
-- **请求方法**: `GET`
-- **描述**: 导出公告列表至 Excel 文件。
-
-### 导入公告
-- **URL**: `POST /notice/import`
-- **请求方法**: `POST`
-- **请求参数**: `file`（`MultipartFile`）
-- **描述**: 从 Excel 文件导入公告数据。
-
----
-
-## 3. 角色管理接口 (`RoleController`)
-
-### 新增或更新角色
-- **URL**: `POST /role`
-- **请求方法**: `POST`
-- **请求体**: `Role` 对象
-- **描述**: 新增或更新角色。
-
-### 删除角色
-- **URL**: `DELETE /role/{id}`
-- **请求方法**: `DELETE`
-- **路径参数**: `id`（`Integer`）：角色 ID
-- **描述**: 删除指定角色。
-
-### 批量删除角色
-- **URL**: `POST /role/del/batch`
-- **请求方法**: `POST`
-- **请求体**: `List<Integer>`（角色 ID 列表）
-- **描述**: 批量删除角色。
-
-### 查询所有角色
-- **URL**: `GET /role`
-- **请求方法**: `GET`
-- **描述**: 查询所有角色。
-
-### 查询单个角色
-- **URL**: `GET /role/{id}`
-- **请求方法**: `GET`
-- **路径参数**: `id`（`Integer`）：角色 ID
-- **描述**: 查询指定角色。
-
-### 分页查询角色
-- **URL**: `GET /role/page`
-- **请求方法**: `GET`
-- **请求参数**:
-  - `name`（`String`）：角色名称（模糊查询）
-  - `pageNum`（`Integer`）：页码
-  - `pageSize`（`Integer`）：每页数量
-- **描述**: 分页查询角色，按名称模糊查询。
-
-### 绑定角色与菜单
-- **URL**: `POST /role/roleMenu/{roleId}`
-- **请求方法**: `POST`
-- **路径参数**: `roleId`（`Integer`）：角色 ID
-- **请求体**: `List<Integer>`（菜单 ID 列表）
-- **描述**: 为角色绑定菜单。
-
-### 获取角色的菜单关系
-- **URL**: `GET /role/roleMenu/{roleId}`
-- **请求方法**: `GET`
-- **路径参数**: `roleId`（`Integer`）：角色 ID
-- **描述**: 查询角色的菜单权限关系。
-
----
-
-## 4. 用户管理接口 (`UserController`)
-
-### 用户登录
-- **URL**: `POST /user/login`
-- **请求方法**: `POST`
-- **请求体**: `UserDTO` 对象（包含 `username` 和 `password`）
-- **描述**: 用户登录验证。
-
-### 用户注册
-- **URL**: `POST /user/register`
-- **请求方法**: `POST`
-- **请求体**: `UserDTO` 对象（包含 `username` 和 `password`）
-- **描述**: 注册新用户。
-
-### 新增或更新用户
-- **URL**: `POST /user`
-- **请求方法**: `POST`
-- **请求体**: `User` 对象
-- **描述**: 新增或更新用户信息。
-
-### 修改密码
-- **URL**: `POST /user/password`
-- **请求方法**: `POST`
-- **请求体**: `UserPasswordDTO` 对象
-- **描述**: 修改用户密码。
-
-### 重置密码
-- **URL**: `PUT /user/reset`
-- **请求方法**: `PUT`
-- **请求体**: `UserPasswordDTO` 对象（包含 `username` 和 `phone`）
-- **描述**: 重置用户密码为默认值 `123`。
-
-### 删除用户
-- **URL**: `DELETE /user/{id}`
-- **请求方法**: `DELETE`
-- **路径参数**: `id`（`Integer`）：用户 ID
-- **描述**: 删除指定用户。
-
-### 批量删除用户
-- **URL**: `POST /user/del/batch`
-- **请求方法**: `POST`
-- **请求体**: `List<Integer>`（用户 ID 列表）
-- **描述**: 批量删除用户。
-
-### 查询所有用户
-- **URL**: `GET /user`
-- **请求方法**: `GET`
-- **描述**: 获取所有用户列表。
-
-### 查询单个用户
-- **URL**: `GET /user/{id}`
-- **请求方法**: `GET`
-- **路径参数**: `id`（`Integer`）：用户 ID
-- **描述**: 查询指定用户。
-
-### 根据用户名查询用户
-- **URL**: `GET /user/username/{username}`
-- **请求方法**: `GET`
-- **路径参数**: `username`（`String`）：用户名
-- **描述**: 查询指定用户名的用户信息。
-
-### 分页查询用户
-- **URL**: `GET /user/page`
-- **请求方法**: `GET`
-- **请求参数**:
-  - `pageNum`（`Integer`）：页码
-  - `pageSize`（`Integer`）：每页数量
-  - `username`（`String`）：用户名（模糊查询）
-  - `email`（`String`）：用户邮箱（模糊查询）
-  - `address`（`String`）：用户地址（模糊查询）
-- **描述**: 分页查询用户列表，可按用户名、邮箱、地址模糊查询。
-
-联系方式
-如有任何问题，请联系2545997627@qq.com
+如有任何问题，请联系：2545997627@qq.com
