@@ -47,7 +47,7 @@
 
 ---
 
-## 快速开始
+## 快速开始（代码存放在 `master-address_vue` 分支中）
 
 ### 克隆仓库
 
@@ -221,7 +221,7 @@ npm run serve
 
 ## 后端部分
 
-代码存放在 `master` 分支中，以下是后端的主要目录结构：
+代码存放在 `master-address_Springboot` 分支中，以下是后端的主要目录结构：
 
 ```plaintext
 com.example.Application             # 启动类
