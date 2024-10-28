@@ -8,7 +8,7 @@
 - **Spring Boot**
 - **MySQL**
 
-## 目录结构
+## 代码存放在 master 分支中，目录结构
 
 ```plaintext
 com.example.Application             # 启动类
@@ -278,4 +278,4 @@ mvn spring-boot:run
 - **描述**: 分页查询用户列表，可按用户名、邮箱、地址模糊查询。
 
 联系方式
-如有任何问题，请联系1295321006@qq.com
+如有任何问题，请联系2545997627@qq.com
